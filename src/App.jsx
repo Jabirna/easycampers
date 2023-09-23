@@ -7,7 +7,7 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <div class="body-wrap overflow-hidden">
+    <div className="body-wrap overflow-hidden">
       <Navbar/>
     </div>
   )
