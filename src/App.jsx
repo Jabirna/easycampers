@@ -1,15 +1,22 @@
 import { useState } from 'react'
 import './App.css'
 import Navbar from './componets/Navbar'
+import Overview from './componets/Overview'
 
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <div className="max-md:p-3 p-6 overflow-hidden">
-      <Navbar/>
-    </div>
+    <main className="overflow-hidden">
+      <section>
+        <Navbar/>
+      </section>
+      <secton>
+        <Overview/>
+      </secton>
+      
+    </main>
   )
 }
 
