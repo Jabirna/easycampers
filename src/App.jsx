@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import Navbar from './componets/Navbar'
 import Overview from './componets/Overview'
+import Services from './componets/Services'
 
 
 function App() {
@@ -15,7 +16,9 @@ function App() {
       <secton>
         <Overview/>
       </secton>
-      
+      <section>
+        <Services/>
+      </section>
     </main>
   )
 }
