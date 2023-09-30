@@ -3,6 +3,7 @@ import './App.css'
 import Navbar from './componets/Navbar'
 import Overview from './componets/Overview'
 import Services from './componets/Services'
+import Booking from './componets/Booking'
 
 
 function App() {
@@ -18,6 +19,9 @@ function App() {
       </secton>
       <section>
         <Services/>
+      </section>
+      <section>
+        <Booking/>
       </section>
     </main>
   )
