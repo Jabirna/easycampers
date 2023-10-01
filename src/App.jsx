@@ -14,13 +14,13 @@ function App() {
       <section>
         <Navbar/>
       </section>
-      <secton>
+      <section>
         <Overview/>
-      </secton>
+      </section>
       <section>
         <Services/>
       </section>
-      <section>
+      <section id='booking'>
         <Booking/>
       </section>
     </main>

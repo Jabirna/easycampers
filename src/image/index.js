@@ -11,6 +11,8 @@ import coupleCampfire from './couple-campfire.jpg'
 import campfire from './campfire-1.jpg'
 import bbq from './bbq.jpg'
 import bbqNature from './bbq-nature.jpg'
+import bookingBg from './bookingBg.jpg'
+export const bookingbg =bookingBg
 const slideImg=[
     {img:tentStay},
     {img:sunrise},
