@@ -14,7 +14,7 @@ const Navbar = () => {
       </div>
       {menu?<RxCross2 className='md:hidden block cursor-pointer' onClick={()=>setMenu(!menu)}/>:<FiMenu className={'md:hidden block cursor-pointer'} onClick={()=>setMenu(!menu)}/>} 
       <div className={menu?`max-md:w-full`:`max-md:hidden block`}>
-         <ul className='md:flex justify-center md:space-x-6 duration-500'>
+         <ul className='md:flex justify-center md:space-x-6 '>
             <li className='cursor-pointer text-center max-md:border-b-[1px] max-md:py-1 hover:font-medium hover:text-green-700'>Home</li>
             <li className='cursor-pointer text-center max-md:border-b-[1px] max-md:py-1 hover:font-medium hover:text-green-700'>Services</li>
             <li className='cursor-pointer text-center max-md:border-b-[1px] max-md:py-1 hover:font-medium hover:text-green-700'>Contact</li>

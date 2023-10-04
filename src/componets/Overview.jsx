@@ -39,7 +39,7 @@ const Overview = () => {
                 <li><p><a href='#' className='hover:text-green-300 hover:text-[16.5px] flex'><BsArrowRightCircle className='mt-1 me-2' />  DINNER</a></p></li>
                 <li><p><a href='#' className='hover:text-green-300 hover:text-[16.5px] flex'><BsArrowRightCircle className='mt-1 me-2' />  BBQ</a></p></li>
             </ul>
-            <button className='mt-10 w-full p-4 text-white font-mono font-extrabold bg-green-500 rounded-lg shadow-xl text-[20px] hover:ring-1 hover:ring-green-100 hover:shadow-lg' >BOOKING NOW</button>
+            <button onClick={(e)} className='mt-10 w-full p-4 text-white font-mono font-extrabold bg-green-500 rounded-lg shadow-xl text-[20px] hover:ring-1 hover:ring-green-100 hover:shadow-lg' >BOOKING NOW</button>
         </div>
         <div className='max-md:w-full w-[50%] min-w-[290px] h-[600px] max-md:h-[400px] p-5  min-h-full relative group'>
             <div style={{ backgroundImage:`url(${slideImg[imgIndex].img})`,height:'100%',width:'100%'}} className='rounded-2xl shadow-xl bg-cover bg-center duration-500'></div>
