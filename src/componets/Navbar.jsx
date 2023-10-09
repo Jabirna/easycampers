@@ -8,7 +8,7 @@ const Navbar = () => {
    const[menu,setMenu]=useState(false)
   return (
     
-<nav className='flex flex-wrap justify-between max-md:p-3 pt-3 px-2 border-b-[1.5px] shadow-md'>
+<nav className='flex flex-wrap justify-between max-md:p-3 pt-3 px-2 border-b-[1.5px] shadow-md fixed top-0 left-0 right-0 bg-white z-10'>
       <div className='max-md:w-[80%]'>
          <h1 className='text-start text-lg font-extrabold font-mono  '>EASY CAMPERS</h1>   
       </div>

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import './App.css'
 import Navbar from './componets/Navbar'
 import Overview from './componets/Overview'
@@ -7,21 +7,21 @@ import Booking from './componets/Booking'
 
 
 function App() {
-  const [count, setCount] = useState(0)
+  const bokref=useRef(null)
 
   return (
-    <main className="overflow-hidden">
-      <section>
+    <main className="overflow-hidden scroll-smooth">
+      <section className='relative'>
         <Navbar/>
       </section>
       <section>
-        <Overview/>
+        <Overview ref={bokref}/>
       </section>
       <section>
         <Services/>
       </section>
       <section id='booking'>
-        <Booking/>
+        <Booking ref={bokref}/>
       </section>
     </main>
   )
