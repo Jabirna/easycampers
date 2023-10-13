@@ -4,6 +4,7 @@ import Navbar from './componets/Navbar'
 import Overview from './componets/Overview'
 import Services from './componets/Services'
 import Booking from './componets/Booking'
+import Contact from './componets/Contact'
 
 
 function App() {
@@ -22,6 +23,10 @@ function App() {
       </section>
       <section id='booking'>
         <Booking ref={bokref}/>
+      </section>
+      {/*Review section */}
+      <section>
+        <Contact/>
       </section>
     </main>
   )
