@@ -5,6 +5,7 @@ import Overview from './componets/Overview'
 import Services from './componets/Services'
 import Booking from './componets/Booking'
 import Contact from './componets/Contact'
+import Footer from './componets/Footer'
 
 
 function App() {
@@ -24,9 +25,12 @@ function App() {
       <section id='booking'>
         <Booking ref={bokref}/>
       </section>
-      {/*Review section */}
+      {/*missing Review section */}
       <section>
         <Contact/>
+      </section>
+      <section>
+        <Footer/>
       </section>
     </main>
   )
