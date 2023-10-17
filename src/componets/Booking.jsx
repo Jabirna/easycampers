@@ -1,10 +1,10 @@
-import React,{forwardRef} from 'react'
+import React from 'react'
 import {bookingbg} from '../image/index'
 import campfireGif from '../image/gif/move2.gif'
 
-const Booking = ({},ref) => {
+const Booking = () => {
   return (
-    <div ref={ref} className='mt-3 p-2 flex  bg-cover' style={{backgroundImage:`url(${bookingbg})`,height:'100%',width:'100%'}}>
+    <div id='booking' className='mt-3 p-2 flex  bg-cover' style={{backgroundImage:`url(${bookingbg})`,height:'100%',width:'100%'}}>
         <div className='w-[100%] p-6 flex flex-wrap justify-center'>
             <h1 className='w-full text-center text-[30px] font-bold text-white font-mono mb-4 uppercase'>Booking Your Best Tour Camping</h1>
             <div className='max-sm:w-full'>
@@ -22,4 +22,4 @@ const Booking = ({},ref) => {
   )
 }
 
-export default forwardRef(Booking)
+export default Booking

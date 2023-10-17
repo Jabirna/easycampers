@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import react from 'react'
 import './App.css'
 import Navbar from './componets/Navbar'
 import Overview from './componets/Overview'
@@ -9,21 +9,19 @@ import Footer from './componets/Footer'
 
 
 function App() {
-  const bokref=useRef(null)
-
   return (
     <main className="overflow-hidden scroll-smooth">
       <section className='relative'>
         <Navbar/>
       </section>
       <section>
-        <Overview ref={bokref}/>
+        <Overview/>
       </section>
       <section>
         <Services/>
       </section>
       <section id='booking'>
-        <Booking ref={bokref}/>
+        <Booking/>
       </section>
       {/*missing Review section */}
       <section>

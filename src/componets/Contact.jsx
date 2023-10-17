@@ -6,7 +6,7 @@ import {GrInstagram} from 'react-icons/gr'
 
 const Contact = () => {
   return (
-    <div>
+    <div id='contact'>
       <div className=' bg-slate-100 rounded-md mt-2 mb-2 ml-3 mr-3 p-3'>
           <h1 className='text-center font-mono font-bold text-lg'>CONTACTS</h1>
           <div className='flex flex-wrap '>
