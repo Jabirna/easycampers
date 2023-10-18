@@ -11,7 +11,7 @@ const Services = () => {
                 return(
                     <div id={item.head} key={indx} className='max-sm:w-full w-[300px] h-[420px] hover:p-0 p-1 border-1 border-gray-400 shadow-2xl rounded-lg mt-2 mr-2 cursor-pointer duration-500'>
                         <div className='w-full h-[260px] bg-cover bg-center rounded-lg' style={{backgroundImage:`url(${item.img})`}}></div>
-                        <h3 className='text-lg font-mono uppercase font-medium font-bold pt-2 pl-2 pr-2 '>{item.head}</h3>
+                        <h3 className='text-lg font-mono uppercase font-bold pt-2 pl-2 pr-2 '>{item.head}</h3>
                         <div className='h-[80px]'>
                             <p className='text-sm text-gray-500 font-mono font-light pt-1 px-2'>{item.desc.slice(0,110)}  ...</p>
                         </div>
