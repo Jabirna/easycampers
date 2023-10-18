@@ -8,7 +8,7 @@ import { useSelector } from 'react-redux'
 
 const Overview = () => {
     const services=useSelector((state)=>state.services)
-    console.log(services)
+    //console.log(services)
     const divStyle = {
         backgroundImage: `url(${bgimg})`, // Replace with the path to your image
         backgroundSize: 'cover', // You can adjust background properties as needed
@@ -36,8 +36,8 @@ const Overview = () => {
             <h1 className='mt-6 font-mono text-[35px] text-center font-extrabold text-white'>EXPLORE KOLUKKUMALAI</h1>
             <ul className='text-white ps-[20%] pt-4 font-mono font-semibold md:text-center space-y-3'>
               {
-                services.map((item)=>{
-                  return(<li>
+                services.map((item,index)=>{
+                  return(<li key={index}>
                             <Link to={item.head} smooth={true} duration={500}>
                               <p className='hover:text-green-300 hover:text-[16.5px] cursor-pointer uppercase flex'><BsArrowRightCircle className='mt-1 me-2' />
                                   {item.head}

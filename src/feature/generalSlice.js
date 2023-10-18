@@ -1,19 +1,19 @@
 import {createSlice} from '@reduxjs/toolkit'
-import {useState} from 'react'
 
 const initialState={
-    menu:false
+    value:{menu:false}
 }
 
 export const generalSlice=createSlice({
     name:'generalSlice',
     initialState,
     reducers:{
-        setMenu:((state)=>{
-            state.menu=!state.menu
+        setMenu:((state,action)=>{
+            console.log(action.payload)
+            state.value=action.payload
         })
     }
 })
 
 export const {setMenu}=generalSlice.actions
-export default generalSlice.reducers
+export default generalSlice.reducer
