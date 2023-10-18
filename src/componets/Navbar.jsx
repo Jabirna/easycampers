@@ -23,23 +23,23 @@ const Navbar = () => {
                {menuH?<RxCross2 className='md:hidden block cursor-pointer' onClick={()=>setMenuhook(!menuH)}/>:<FiMenu className={'md:hidden block cursor-pointer'} onClick={()=>setMenuhook(!menuH)}/>} 
                <div className={menuH?`max-md:w-full`:`max-md:hidden block`} onClick={()=>setMenuhook(false)}>
                   <ul className='md:flex justify-center md:space-x-6 '>
-                     <li className='cursor-pointer text-center max-md:border-b-[1px] max-md:py-1 hover:font-medium hover:text-green-700'>
-                        <Link to='overview' className='w-full block' smooth={true} duration={500} offset={-100}>
+                     <li className='cursor-pointer text-center max-md:border-b-[1px] max-md:py-1 hover:font-medium hover:text-green-700' onClick={()=>setMenuhook(false)}>
+                        <Link to='overview' className='w-full block' smooth={true} duration={500} offset={-100} onClick={()=>setMenuhook(false)}>
                            Home
                         </Link>
                      </li>
-                     <li className='cursor-pointer text-center max-md:border-b-[1px] max-md:py-1 hover:font-medium hover:text-green-700'>
-                        <Link to='service' className='w-full block' smooth={true} duration={500}>
+                     <li className='cursor-pointer text-center max-md:border-b-[1px] max-md:py-1 hover:font-medium hover:text-green-700' onClick={()=>setMenuhook(false)}>
+                        <Link to='service' className='w-full block' smooth={true} duration={500} onClick={()=>setMenuhook(false)}>
                            Services
                         </Link>
                      </li>
-                     <li className='cursor-pointer text-center max-md:border-b-[1px] max-md:py-1 hover:font-medium hover:text-green-700'>
-                        <Link to='booking' className='w-full block' smooth={true} duration={500}>
+                     <li className='cursor-pointer text-center max-md:border-b-[1px] max-md:py-1 hover:font-medium hover:text-green-700' onClick={()=>setMenuhook(false)}>
+                        <Link to='booking' className='w-full block' smooth={true} duration={500} onClick={()=>setMenuhook(false)}>
                            Booking
                         </Link>
                      </li>
-                     <li className='cursor-pointer text-center max-md:border-b-[1px] max-md:py-1 hover:font-medium hover:text-green-700'>
-                        <Link to='contact' className='w-full block' smooth={true} duration={500}>
+                     <li className='cursor-pointer text-center max-md:border-b-[1px] max-md:py-1 hover:font-medium hover:text-green-700' onClick={()=>setMenuhook(false)}>
+                        <Link to='contact' className='w-full block' smooth={true} duration={500} onClick={()=>setMenuhook(false)}>
                            Contact
                         </Link> 
                      </li>
