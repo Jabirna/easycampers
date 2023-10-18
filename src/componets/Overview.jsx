@@ -4,7 +4,8 @@ import {BsArrowRightCircle} from 'react-icons/bs'
 import {BiLeftArrow,BiRightArrow} from 'react-icons/bi'
 import slideImg from '../image/index'
 import {Link} from 'react-scroll'
-import { useSelector } from 'react-redux'
+import { useSelector} from 'react-redux'
+import { setMenu } from '../feature/generalSlice'
 
 const Overview = () => {
     const services=useSelector((state)=>state.services)
@@ -31,7 +32,7 @@ const Overview = () => {
       },[imgIndex])
       
   return (
-    <div id='overview' className='w-full flex flex-wrap min-h-[500px] p-3 mt-10' style={divStyle}>
+    <div id='overview' className='w-full flex flex-wrap min-h-[500px] p-3 mt-10' style={divStyle} >
         <div className='max-md:w-full w-[50%] '>
             <h1 className='mt-6 font-mono text-[35px] text-center font-extrabold text-white'>EXPLORE KOLUKKUMALAI</h1>
             <ul className='text-white ps-[20%] pt-4 font-mono font-semibold md:text-center space-y-3'>

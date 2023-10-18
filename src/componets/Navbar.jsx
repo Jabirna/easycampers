@@ -20,26 +20,26 @@ const Navbar = () => {
                <div className='max-md:w-[80%]'>
                   <h1 className='text-start text-lg font-extrabold font-mono  '>EASY CAMPERS</h1>   
                </div>
-               {menu?<RxCross2 className='md:hidden block cursor-pointer' onClick={()=>setMenuhook(!menu)}/>:<FiMenu className={'md:hidden block cursor-pointer'} onClick={()=>setMenuhook(!menu)}/>} 
-               <div className={menu?`max-md:w-full`:`max-md:hidden block`}>
+               {menuH?<RxCross2 className='md:hidden block cursor-pointer' onClick={()=>setMenuhook(!menuH)}/>:<FiMenu className={'md:hidden block cursor-pointer'} onClick={()=>setMenuhook(!menuH)}/>} 
+               <div className={menuH?`max-md:w-full`:`max-md:hidden block`} onClick={()=>setMenuhook(false)}>
                   <ul className='md:flex justify-center md:space-x-6 '>
                      <li className='cursor-pointer text-center max-md:border-b-[1px] max-md:py-1 hover:font-medium hover:text-green-700'>
-                        <Link to='overview' smooth={true} duration={500} offset={-100}>
+                        <Link to='overview' className='w-full block' smooth={true} duration={500} offset={-100}>
                            Home
                         </Link>
                      </li>
                      <li className='cursor-pointer text-center max-md:border-b-[1px] max-md:py-1 hover:font-medium hover:text-green-700'>
-                        <Link to='service' smooth={true} duration={500}>
+                        <Link to='service' className='w-full block' smooth={true} duration={500}>
                            Services
                         </Link>
                      </li>
                      <li className='cursor-pointer text-center max-md:border-b-[1px] max-md:py-1 hover:font-medium hover:text-green-700'>
-                        <Link to='booking' smooth={true} duration={500}>
+                        <Link to='booking' className='w-full block' smooth={true} duration={500}>
                            Booking
                         </Link>
                      </li>
                      <li className='cursor-pointer text-center max-md:border-b-[1px] max-md:py-1 hover:font-medium hover:text-green-700'>
-                        <Link to='contact' smooth={true} duration={500}>
+                        <Link to='contact' className='w-full block' smooth={true} duration={500}>
                            Contact
                         </Link> 
                      </li>

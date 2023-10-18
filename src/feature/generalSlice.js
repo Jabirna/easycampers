@@ -11,7 +11,7 @@ export const generalSlice=createSlice({
         setMenu:((state,action)=>{
             console.log(action.payload)
             state.value=action.payload
-        })
+        }),
     }
 })
 

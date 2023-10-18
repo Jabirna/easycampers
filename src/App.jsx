@@ -7,7 +7,6 @@ import Booking from './componets/Booking'
 import Contact from './componets/Contact'
 import Footer from './componets/Footer'
 
-
 function App() {
   return (
     <main className="overflow-hidden scroll-smooth">
@@ -17,7 +16,7 @@ function App() {
       <section>
         <Overview/>
       </section>
-      <section>
+      <section >
         <Services/>
       </section>
       <section id='booking'>
