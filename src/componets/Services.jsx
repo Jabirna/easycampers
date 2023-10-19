@@ -1,11 +1,13 @@
 import React from 'react'
 import {BsArrowRightShort} from 'react-icons/bs'
 import { useSelector } from 'react-redux'
+import ServiceDtlModel from './ServiceDtlModel'
 
 const Services = () => {
     const services=useSelector((state)=>state.services)
   return (
-    <div id='service'>
+    <>
+    <div id='service' >
         <div className='p-3 flex flex-wrap justify-center'>
             {services.map((item,indx)=>{
                 return(
@@ -20,7 +22,10 @@ const Services = () => {
                 )
             })}
         </div>
+        
     </div>
+    <ServiceDtlModel/>
+    </>
   )
 }
 
