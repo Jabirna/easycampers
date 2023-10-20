@@ -1,10 +1,12 @@
-import React from 'react'
+import React,{useState} from 'react'
 import {BsArrowRightShort} from 'react-icons/bs'
 import { useSelector } from 'react-redux'
 import ServiceDtlModel from './ServiceDtlModel'
 
 const Services = () => {
     const services=useSelector((state)=>state.services)
+    const [dtlShow,setDtlShow]=useState(false)
+    const [dtlIndx,setDtlIndx]=useState(0);
   return (
     <>
     <div id='service' >
@@ -17,14 +19,18 @@ const Services = () => {
                         <div className='h-[80px]'>
                             <p className='text-sm text-gray-500 font-mono font-light pt-1 px-2'>{item.desc.slice(0,110)}  ...</p>
                         </div>
-                        <button className='hover:ring-1 shadow-xl text-white font-semibold hover:ring-gray-400 mt-1 p-1  w-full  flex justify-center bg-green-500'>know more <BsArrowRightShort className='mt-[4px]'/></button>
+                        <button className='hover:ring-1 shadow-xl text-white font-semibold hover:ring-gray-400 mt-1 p-1  w-full  flex justify-center bg-green-500'
+                         onClick={()=>{
+                                setDtlIndx(indx)
+                                setDtlShow(!dtlShow)
+                                }}>know more <BsArrowRightShort className='mt-[4px]'/></button>
                     </div>
                 )
             })}
         </div>
         
     </div>
-    <ServiceDtlModel/>
+    {dtlShow && <ServiceDtlModel service={services[dtlIndx]} setDtlShow={setDtlShow}/>}
     </>
   )
 }
