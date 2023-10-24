@@ -4,16 +4,18 @@ import App from './App.jsx'
 import './index.css'
 import { store } from './app/Store.js'
 import { Provider } from 'react-redux'
-import { BrowserRouter as Router,Switch,Route } from 'react-router-dom'
+import { BrowserRouter as Router,Routes,Route} from 'react-router-dom'
+import AdminPannel from './componets/Admin/AdminPannel.jsx'
 
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <Provider store={store}>
     <Router>
-      <Switch>
-        <Route path='/' component={App}/>
-      </Switch>
+        <Routes>
+          <Route path='/' Component={App}/>
+          <Route path='/admin' Component={AdminPannel}/>
+        </Routes>
     </Router>
   </Provider>,
 )
