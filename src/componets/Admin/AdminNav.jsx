@@ -1,5 +1,5 @@
 import React from 'react'
-import {auth} from '../firebase'
+import {auth} from '../firebaseConfig'
 
 const AdminNav = (props) => {
     const {setSingin,setUser}=props
