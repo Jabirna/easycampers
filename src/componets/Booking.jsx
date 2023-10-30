@@ -1,4 +1,4 @@
-import React,{useState,useRef} from 'react'
+import React,{useState,useRef, useEffect} from 'react'
 import {bookingbg} from '../image/index'
 import campfireGif from '../image/gif/move2.gif'
 import { addDoc, collection ,getDocs} from 'firebase/firestore/lite'
@@ -44,13 +44,17 @@ const Booking = () => {
       }
     }
   }
+
+  useEffect(()=>{
+    console.log(formError)
+  },[formError])
   return (
     <div id='booking' className='mt-3 p-2 flex  bg-cover' style={{backgroundImage:`url(${bookingbg})`,height:'100%',width:'100%'}}>
         <div className='w-[100%] p-6 flex flex-wrap justify-center'>
             <h1 className='w-full text-center text-[30px] font-bold text-white font-mono mb-4 uppercase'>Booking Your Best Tour Camping</h1>
             <form className='max-sm:w-full md:w-[30%]'>
-                <label className='text-md font-mono font-medium text-left block  pl-2 text-white '>Name</label>
-                <input type='text'  name="name" onChange={handleOnChange} className={`p-1 border-none ring-1 ring-inset  bg-gray-50 rounded-md w-full ${formError.name?`ring-4 ring-red-600`:`ring-gray-300`}`} placeholder='enter your name'/>
+                <label className='text-md font-mono font-medium text-left block  pl-2 text-white '>Name  {formError.name}</label>
+                <input type='text'  name="name" onChange={handleOnChange} className={`p-1 border-none ring-1 ring-inset  bg-gray-50 rounded-md appearance-none w-full ${formError.name?`outline bg-red-100 outline-red-500`:`outline-none`}`} placeholder='enter your name'/>
                 <label className='text-md text-left block  pl-2 pt-1 text-white'>Phone Number</label>
                 <input type='number'  name='phone' onChange={handleOnChange} className='p-1 border-none ring-1 ring-inset ring-gray-300  bg-gray-50 rounded-md w-full ' placeholder='your phone number'/>
                 <label className='text-md font-mono font-medium text-left block pt-1  pl-2 text-white '>Email</label>
