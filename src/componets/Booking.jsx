@@ -19,16 +19,19 @@ const Booking = () => {
   }
 
   const inputsValidation=()=>{
+    const emailPattern = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
     const errors={}
     console.log(formData.name)
     if(formData.name===undefined||formData.name===''){
       errors.name="this field is required"
     }
-    console.log(errors)
-    console.log(Object.keys(errors).length)
-    if(Object.keys(errors).length>0){
-      setFormError(errors)
+    if(!emailPattern.test(formData.email) || formData.email===undefined||formData.email==='' ){
+      errors.email="invalid email id"
     }
+    if(formData.phone===undefined||formData.phone===''){
+      errors.phone="this field is required"
+    }
+    setFormError(errors)
   }
 
   const savingToDb=async (e)=>{
@@ -53,12 +56,12 @@ const Booking = () => {
         <div className='w-[100%] p-6 flex flex-wrap justify-center'>
             <h1 className='w-full text-center text-[30px] font-bold text-white font-mono mb-4 uppercase'>Booking Your Best Tour Camping</h1>
             <form className='max-sm:w-full md:w-[30%]'>
-                <label className='text-md font-mono font-medium text-left block  pl-2 text-white '>Name  {formError.name}</label>
+                <label className='text-md font-mono font-medium text-left block  pl-2 text-white '>Name <span className='text-red-500 text-sm'>{formError.name}</span></label>
                 <input type='text'  name="name" onChange={handleOnChange} className={`p-1 border-none ring-1 ring-inset  bg-gray-50 rounded-md appearance-none w-full ${formError.name?`outline bg-red-100 outline-red-500`:`outline-none`}`} placeholder='enter your name'/>
-                <label className='text-md text-left block  pl-2 pt-1 text-white'>Phone Number</label>
-                <input type='number'  name='phone' onChange={handleOnChange} className='p-1 border-none ring-1 ring-inset ring-gray-300  bg-gray-50 rounded-md w-full ' placeholder='your phone number'/>
-                <label className='text-md font-mono font-medium text-left block pt-1  pl-2 text-white '>Email</label>
-                <input type='email'  name='email' onChange={handleOnChange} className='p-1 border-none ring-1 ring-inset ring-gray-300 bg-gray-50 rounded-md w-full ' placeholder='email address'/>
+                <label className='text-md text-left block  pl-2 pt-1 text-white'>Phone Number <span className='text-red-500 text-sm'>{formError.phone}</span></label>
+                <input type='number'  name='phone' onChange={handleOnChange} className={`p-1 border-none ring-1 ring-inset ring-gray-300  bg-gray-50 rounded-md w-full ${formError.phone?`outline bg-red-100 outline-red-500`:`outline-none`}`} placeholder='your phone number'/>
+                <label className='text-md font-mono font-medium text-left block pt-1  pl-2 text-white '>Email <span className='text-red-500 text-sm'>{formError.email}</span></label>
+                <input type='email'  name='email' onChange={handleOnChange} className={`p-1 border-none ring-1 ring-inset ring-gray-300 bg-gray-50 rounded-md w-full ${formError.email?`outline bg-red-100 outline-red-500`:`outline-none`}`} placeholder='email address'/>
                 <label className='text-md text-left block  pl-2 pt-1 text-white'>start date</label>
                 <input type='date'  name='startDate' onChange={handleOnChange} className='p-1 border-none ring-1 ring-inset ring-gray-300  bg-gray-50 rounded-md w-full ' placeholder='start date'/>
                 <label className='text-md text-left block  pl-2 pt-1 text-white'>End date</label>
