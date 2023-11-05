@@ -44,7 +44,7 @@ const Navbar = () => {
                         </Link> 
                      </li>
                      <li className='mb-2 '>
-                        <a className='call-btn max-md:flex max-md:justify-center'>Call Now
+                        <a href='tel:7306298294' target='_blank' className='call-btn max-md:flex max-md:justify-center'>Call Now
                            <span className='bg-white p-1 ml-2 rounded-full text-black '><IoCall/></span>
                         </a>
                      </li>
