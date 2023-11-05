@@ -51,12 +51,31 @@ const Booking = () => {
     return flage
   }
 
+  const sendToWhatsapp=()=>{
+    let phoneNumber='+97450800289'
+    let url = "https://wa.me/" + phoneNumber + "?text="
+          +"Name :"+formData.name+"%0a"
+          +"Number : "+formData.phone+"%0a"
+          +"Email : "+formData.email+"%0a"
+          +"Check In: "+formData.startDate+"%0a"
+          +"Check Out: "+formData.endDate+"%0a"
+     
+          +"Number of Guest : "+formData.noOfPeople
+          +"%0a%0a"
+          +"Thanks for booking Easycampers Have A NICE DAY";
+      window.open(url, '_blank').focus();
+  }
+
   const savingToDb=async (e)=>{
     e.preventDefault()
     if(inputsValidation()){
       try{
         const dbRef=addDoc(collection(db,"booking"),formData)
         console.log(dbRef.id)
+        const isSendingToWhatsapp=window.confirm("Do you want to send message wia Whatsapp?")
+        if(isSendingToWhatsapp){
+          sendToWhatsapp()
+        }
         setFormData({name:'',phone:'',email:'',startDate:'',endDate:'',noOfPeople:''})
         alert("Thank you for Booking . our team will contact you soon for booking conformation.")
       }catch(e){
@@ -79,11 +98,11 @@ const Booking = () => {
                 <input type='number'  name='phone' onChange={handleOnChange} value={formData?.phone} className={`p-1 border-none ring-1 ring-inset ring-gray-300  bg-gray-50 rounded-md w-full ${formError.phone?`outline bg-red-100 outline-red-500`:`outline-none`}`} placeholder='your phone number'/>
                 <label className='text-md font-mono font-medium text-left block pt-1  pl-2 text-white '>Email <span className='text-red-500 text-sm'>{formError.email}</span></label>
                 <input type='email'  name='email' onChange={handleOnChange} value={formData?.email} className={`p-1 border-none ring-1 ring-inset ring-gray-300 bg-gray-50 rounded-md w-full ${formError.email?`outline bg-red-100 outline-red-500`:`outline-none`}`} placeholder='email address'/>
-                <label className='text-md text-left block  pl-2 pt-1 text-white'>start date  <span className='text-red-500 text-sm'>{formError.startDate}</span></label>
-                <input type='date'  name='startDate' onChange={handleOnChange} value={formData?.startDate} className={`p-1 border-none ring-1 ring-inset ring-gray-300  bg-gray-50 rounded-md w-full ${formError.startDate?`outline bg-red-100 outline-red-500`:`outline-none`}`} placeholder='start date'/>
-                <label className='text-md text-left block  pl-2 pt-1 text-white'>End date  <span className='text-red-500 text-sm'>{formError.endDate}</span></label>
-                <input type='date'  name='endDate' onChange={handleOnChange} value={formData?.endDate} className={`p-1 border-none ring-1 ring-inset ring-gray-300  bg-gray-50 rounded-md w-full ${formError.endDate?`outline bg-red-100 outline-red-500`:`outline-none`}`} placeholder='end date'/>
-                <label className='text-md text-left block  pl-2 pt-1 text-white'>Number of People <span className='text-red-500 text-sm'>{formError.noOfPeople}</span></label>
+                <label className='text-md text-left block  pl-2 pt-1 text-white'>Check In  <span className='text-red-500 text-sm'>{formError.startDate}</span></label>
+                <input type='date'  name='startDate' onChange={handleOnChange} value={formData?.startDate} className={`p-1 border-none ring-1 ring-inset ring-gray-300  bg-gray-50 rounded-md w-full ${formError.startDate?`outline bg-red-100 outline-red-500`:`outline-none`}`} placeholder='check in'/>
+                <label className='text-md text-left block  pl-2 pt-1 text-white'>Check Out  <span className='text-red-500 text-sm'>{formError.endDate}</span></label>
+                <input type='date'  name='endDate' onChange={handleOnChange} value={formData?.endDate} className={`p-1 border-none ring-1 ring-inset ring-gray-300  bg-gray-50 rounded-md w-full ${formError.endDate?`outline bg-red-100 outline-red-500`:`outline-none`}`} placeholder='check out'/>
+                <label className='text-md text-left block  pl-2 pt-1 text-white'>Number of Guest <span className='text-red-500 text-sm'>{formError.noOfPeople}</span></label>
                 <input type='number'  name='noOfPeople' onChange={handleOnChange} value={formData?.noOfPeople} className={`p-1 border-none ring-1 ring-inset ring-gray-300  bg-gray-50 rounded-md w-full ${formError.noOfPeople?`outline bg-red-100 outline-red-500`:`outline-none`}`} placeholder='number of people to stay'/>
                 <button type='submit' onClick={savingToDb} className='text-md p-3 rounded-md bg-green-500 text-white font-mono font-bold w-full mt-4 uppercase'>book</button>
             </form>
