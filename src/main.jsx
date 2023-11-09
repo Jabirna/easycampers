@@ -13,8 +13,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <Provider store={store}>
     <Router>
         <Routes>
-          <Route path='/' Component={App}/>
-          <Route path='/admin' Component={AdminPannel}/>
+          <Route path='/' exact basename="/" Component={App}/>
+          <Route path='/admin' basename="/admin" Component={AdminPannel}/>
         </Routes>
     </Router>
   </Provider>,

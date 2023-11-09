@@ -43,6 +43,9 @@ const Navbar = () => {
                            Contact
                         </Link> 
                      </li>
+                     <li className='cursor-pointer text-center max-md:border-b-[1px] max-md:py-1 hover:font-medium hover:text-green-700' onClick={()=>setMenuhook(false)}>
+                        <a href='/admin'>Admin</a>
+                     </li>
                      <li className='mb-2 '>
                         <a href='tel:7306298294' target='_blank' className='call-btn max-md:flex max-md:justify-center'>Call Now
                            <span className='bg-white p-1 ml-2 rounded-full text-black '><IoCall/></span>

@@ -10,7 +10,7 @@ const AdminNav = (props) => {
             auth.signOut()
             setSingin(false)
             setUser()
-            }} className='pr-3 text-sm pt-1 cursor-pointer hover:text-red-400'>Logout-{'>'}</h1>
+            }} className='pr-3 text-sm pt-1 cursor-pointer hover:text-red-400'>Logout</h1>
     </div>
   )
 }
