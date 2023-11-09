@@ -1,4 +1,6 @@
 import React,{useState} from 'react'
+import BookingDetails from './BookingDetails'
+import ServiceManagement from './ServiceManagement'
 
 const AdminControls = () => {
   const [activeSection,setActiveSection]=useState('booking')
@@ -8,6 +10,12 @@ const AdminControls = () => {
         <button onClick={(e)=>setActiveSection(e.target.name)} name='booking' className={`cursor-pointer h-10 mt-2 z-10 ${activeSection=='booking'?'bg-white':''} px-2 border-l-[2px] border-r-[2px] border-b-0`}>Booking Details</button>
         <button onClick={(e)=>setActiveSection(e.target.name)} name='service' className={`cursor-pointer h-10 mt-2 z-10 ${activeSection=='service'?'bg-white':''} px-2 border-l-[2px] border-r-[2px] border-b-0`}>Service Management</button>
       </div>
+      {
+        activeSection=='booking'?
+          <BookingDetails/>:
+          activeSection=='service'?
+            <ServiceManagement/>:''
+      }
     </div>
   )
 }
