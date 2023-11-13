@@ -40,7 +40,7 @@ const BookingDetails =() => {
     },[])
   return (
     <div className='p-5 rounded-sm'>
-      {BookingData.length!=0 &&
+      {BookingData.length!=0 ?
       <DataTable value={BookingData} paginator filters={filters} filterDisplay="row" globalFilterFields={['name', 'phone', 'email', 'startDate','endDate','noOfPeople']} emptyMessage="No customers found." loading={loading} rows={15} rowsPerPageOptions={[10, 15, 25, 50,100]} className='m-2 ring-[0.5px]' tableStyle={{ minWidth: '50rem' }}>
         <Column field="name" filter filterPlaceholder="Search by name" sortable className='ring-[0.5px] p-1' header="Name"></Column>
         <Column field="phone" filter filterPlaceholder="Search by phone" sortable className='ring-[0.5px] text-center p-1' header="Phone"></Column>
@@ -48,7 +48,7 @@ const BookingDetails =() => {
         <Column field="startDate" filter filterPlaceholder="Search by Check in" sortable className='ring-[0.5px] text-center p-1' header="Check IN"></Column>
         <Column field="endDate" filter filterPlaceholder="Search by Check out" sortable className='ring-[0.5px] text-center p-1' header="Check Out"></Column>
         <Column field="noOfPeople" filter filterPlaceholder="Search by people count" sortable className='ring-[0.5px] text-center p-1' header="Number Of Gust"></Column>     
-    </DataTable>}
+    </DataTable>:"Loading..."}
     </div>
   )
 }
