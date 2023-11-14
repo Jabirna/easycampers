@@ -3,16 +3,24 @@ import {auth} from '../firebaseConfig'
 import {signInWithEmailAndPassword} from 'firebase/auth'
 
 const AdminLogin = (props) => {
-    const {setSingin,setUser,user,singin}=props
-    const [userid,setUserid]=useState('')
-    const [password,setPassword]=useState('')
+    const {setSingin,setUser}=props
+    const [userid,setUserid]=useState(''||sessionStorage.getItem('userId'))
+    const [password,setPassword]=useState(''||sessionStorage.getItem('password'))
+    useEffect(()=>{
+        if(sessionStorage.getItem('userId')!='' && sessionStorage.getItem('password')!=''){
+            singIn()
+        }
+    },[userid,password])
+    
     const singIn=async (e)=>{
-        e.preventDefault()
+        e?.preventDefault()
         try{
             if(userid!=''&&password!=''){
                 await signInWithEmailAndPassword(auth,userid,password).then((userCridential)=>{
-                    console.log(userCridential.user.email)
-                    setUser(userCridential.user)
+                    console.log(userCridential.user)
+                    setUser(userCridential.user.email)
+                    sessionStorage.setItem('userId',userCridential.user.email)
+                    sessionStorage.setItem('password',password)
                     setSingin(true)    
                 })
             }else{
