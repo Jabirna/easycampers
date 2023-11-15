@@ -3,12 +3,15 @@ import {bookingbg} from '../image/index'
 import campfireGif from '../image/gif/move2.gif'
 import { addDoc, collection ,getDocs} from 'firebase/firestore/lite'
 import { db } from './firebaseConfig'
+import { Toast } from 'primereact/toast';
 
 const Booking = () => {
   //saving booking datas
   const [formData,setFormData]=useState({});
   const [formError,setFormError]=useState({})
 
+  const [visible, setVisible] = useState(false);//toast visibility
+  const toast = useRef(null);
   const handleOnChange=(e)=>{
     const {name,value}=e.target
     setFormData({
