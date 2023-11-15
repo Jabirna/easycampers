@@ -3,7 +3,7 @@ import {auth} from '../firebaseConfig'
 import {signInWithEmailAndPassword} from 'firebase/auth'
 
 const AdminLogin = (props) => {
-    const {setSingin,setUser}=props
+    const {setSingin,setUser,setSessionTimeout}=props
     const [userid,setUserid]=useState(''||sessionStorage.getItem('userId'))
     const [password,setPassword]=useState(''||sessionStorage.getItem('password'))
     useEffect(()=>{
@@ -21,6 +21,7 @@ const AdminLogin = (props) => {
                     setUser(userCridential.user.email)
                     sessionStorage.setItem('userId',userCridential.user.email)
                     sessionStorage.setItem('password',password)
+                    setSessionTimeout(new Date().getTime()+(60*60*1000))
                     setSingin(true)    
                 })
             }else{
