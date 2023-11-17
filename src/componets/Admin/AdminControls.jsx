@@ -4,13 +4,15 @@ import ServiceManagement from './ServiceManagement'
 
 const AdminControls = (props) => {
   const [activeSection,setActiveSection]=useState('booking')
-  const {sessionTimeout}=props
+  const {sessionTimeout,setSingin}=props
   useEffect(()=>{
     console.log(sessionTimeout)
     console.log(new Date().getTime())
-    if(sessionTimeout>new Date().getTime()){
-      sessionStorage.removeItem('userid');
+    if(sessionTimeout<new Date().getTime()){
+      console.log("session clear")
+      sessionStorage.removeItem('userId');
       sessionStorage.removeItem('password');
+      setSingin(false)
     }
   })
   return (

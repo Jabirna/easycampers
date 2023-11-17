@@ -3,14 +3,18 @@ import {auth} from '../firebaseConfig'
 import {signInWithEmailAndPassword} from 'firebase/auth'
 
 const AdminLogin = (props) => {
-    const {setSingin,setUser,setSessionTimeout}=props
+    const {setSingin,setUser,setSessionTimeout,singin}=props
     const [userid,setUserid]=useState(''||sessionStorage.getItem('userId'))
     const [password,setPassword]=useState(''||sessionStorage.getItem('password'))
     useEffect(()=>{
-        if(sessionStorage.getItem('userId')!='' && sessionStorage.getItem('password')!=''){
+        if(sessionStorage.getItem('userId') && sessionStorage.getItem('password')){
             singIn()
         }
     },[userid,password])
+
+    useEffect(()=>{
+        console.log("singin:"+singin)
+    },[singin])
     
     const singIn=async (e)=>{
         e?.preventDefault()
@@ -19,10 +23,11 @@ const AdminLogin = (props) => {
                 await signInWithEmailAndPassword(auth,userid,password).then((userCridential)=>{
                     console.log(userCridential.user)
                     setUser(userCridential.user.email)
+                    setSingin(true) 
                     sessionStorage.setItem('userId',userCridential.user.email)
                     sessionStorage.setItem('password',password)
                     setSessionTimeout(new Date().getTime()+(60*60*1000))
-                    setSingin(true)    
+                    console.log("singin:"+singin)  
                 })
             }else{
                 alert('missing to enter userid/password')
