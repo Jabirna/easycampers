@@ -20,8 +20,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <Provider store={store}>
       <Router>
           <Routes>
-            <Route path='/' exact basename="/" Component={App}/>
-            <Route path='/admin' basename="/admin" Component={AdminPannel}/>
+            <Route path='/' exact basename="/" element={<App/>}/>
+            <Route path='/admin' basename="/admin" element={<AdminPannel/>}/>
           </Routes>
       </Router>
     </Provider>
