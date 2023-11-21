@@ -21,7 +21,7 @@ const Navbar = () => {
                   <h1 className='text-start text-lg font-extrabold font-mono  '>EASY CAMPERS</h1>   
                </div>
                {menuH?<RxCross2 className='md:hidden block cursor-pointer' onClick={()=>setMenuhook(!menuH)}/>:<FiMenu className={'md:hidden block cursor-pointer'} onClick={()=>setMenuhook(!menuH)}/>} 
-               <div className={menuH?`max-md:w-full`:`max-md:hidden block`} onClick={()=>setMenuhook(false)}>
+               <div className={menuH?`max-md:w-full`:`max-md:hidden`} onClick={()=>setMenuhook(false)}>
                   <ul className='md:flex justify-center md:space-x-6 '>
                      <li className='cursor-pointer text-center max-md:border-b-[1px] max-md:py-1 hover:font-medium hover:text-green-700' onClick={()=>setMenuhook(false)}>
                         <Link to='overview' className='w-full block' smooth={true} duration={500} offset={-100} onClick={()=>setMenuhook(false)}>
