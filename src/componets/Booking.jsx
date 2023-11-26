@@ -1,9 +1,10 @@
 import React,{useState,useRef, useEffect} from 'react'
+import 'primeicons/primeicons.css';
 import {bookingbg} from '../image/index'
 import campfireGif from '../image/gif/move2.gif'
 import { addDoc, collection ,getDocs} from 'firebase/firestore/lite'
 import { db } from './firebaseConfig'
-import { Toast } from 'primereact/toast';
+import { Toast } from 'primereact/toast';      
 
 const Booking = () => {
   //saving booking datas
@@ -55,6 +56,7 @@ const Booking = () => {
   }
 
   const sendToWhatsapp=()=>{
+    savingToDb()
     let phoneNumber='+97450800289'
     let url = "https://wa.me/" + phoneNumber + "?text="
           +"Name :"+formData.name+"%0a"
@@ -75,12 +77,8 @@ const Booking = () => {
       try{
         const dbRef=addDoc(collection(db,"booking"),formData)
         console.log(dbRef.id)
-        const isSendingToWhatsapp=window.confirm("Do you want to send message wia Whatsapp?")
-        if(isSendingToWhatsapp){
-          sendToWhatsapp()
-        }
         setFormData({name:'',phone:'',email:'',startDate:'',endDate:'',noOfPeople:''})
-        alert("Thank you for Booking . our team will contact you soon for booking conformation.")
+        alert("Thank you for Booking . our team will contact you soon .")
       }catch(e){
         console.log("Error:"+e)
       }
@@ -107,7 +105,8 @@ const Booking = () => {
                 <input type='date'  name='endDate' onChange={handleOnChange} value={formData?.endDate} className={`p-1 border-none ring-1 ring-inset ring-gray-300  bg-gray-50 rounded-md w-full ${formError.endDate?`outline bg-red-100 outline-red-500`:`outline-none`}`} placeholder='check out'/>
                 <label className='text-md text-left block  pl-2 pt-1 text-white'>Number of Guest <span className='text-red-500 text-sm'>{formError.noOfPeople}</span></label>
                 <input type='number'  name='noOfPeople' onChange={handleOnChange} value={formData?.noOfPeople} className={`p-1 border-none ring-1 ring-inset ring-gray-300  bg-gray-50 rounded-md w-full ${formError.noOfPeople?`outline bg-red-100 outline-red-500`:`outline-none`}`} placeholder='number of people to stay'/>
-                <button type='submit' onClick={savingToDb} className='text-md p-3 rounded-md bg-green-500 text-white font-mono font-bold w-full mt-4 uppercase'>book</button>
+                <button type='submit' onClick={savingToDb} className='text-md p-3 rounded-md bg-green-500 text-white font-mono font-bold max-lg:w-full mr-3 w-[70%] mt-4 uppercase'>book</button>
+                <button type='submit' onClick={sendToWhatsapp} className='p-3 rounded-md bg-green-500 text-white font-bold max-lg:w-full w-[25%] mt-4  uppercase'><i className="text-lg pi pi-whatsapp"></i></button>
             </form>
             <div className=' w-full ms-5 mt-4  max-w-[320px] max-h-[320px] '>
                 <div className='rounded-2xl bg-cover bg-center h-full w-full' style={{backgroundImage:`url(${campfireGif})`}}></div>
